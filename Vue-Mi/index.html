@@ -1,0 +1,356 @@
+<html>
+  <head>
+    <title>小MI官网</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <link rel="icon" href="img/favicon.png" type="img/png" />
+    <link rel="stylesheet" href="css/public.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <!--头部开始-->
+    <header>
+      <div class="header_main" id="app_header">
+        <div :class="main">
+          <div :class="left_box">
+            <header_link
+              v-for="item in left_box_item"
+              :content="item"
+            ></header_link>
+          </div>
+          <div :class="right_box">
+            <div :class="left_box" style="margin-right: 10px;">
+              <header_link
+                v-for="item in right_box_item"
+                :content="item"
+              ></header_link>
+            </div>
+            <div :class="car_box">
+              <span :class="car" style="margin-left: 28px; font-size: 1em;"
+                >&#xe620;</span
+              >
+              <span :class="car">购物车<i>(0)</i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--头部结束-->
+    <!--导航开始-->
+    <nav>
+      <div class="nav_main" id="app_nav">
+        <div :class="main">
+          <img src="img/mi-logo.png" alt="" :class="logo" />
+          <div :class="middle_box">
+            <middle_content v-for="item in middle_box_items" :data="item">
+            </middle_content>
+          </div>
+          <div :class="right_box">
+            <input
+              type="text"
+              placeholder="小米5plus 小米Note3"
+              :class="input_box"
+              v-model="nav_input"
+            />
+            <input
+              type="button"
+              @click="input_button"
+              :class="search_button"
+              value="&#xe7d4;"
+            />
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- 导航结束 -->
+    <section>
+      <!-- banner开始 -->
+      <article>
+        <div class="banner_main_box" id="app_banner">
+          <ul :class="img_box">
+            <transition name="banner-img-fade">
+              <li_img
+                v-for="item in li_imgs"
+                :data="item"
+                v-if="key_Id==item.num"
+                :key="item.num"
+              ></li_img>
+            </transition>
+          </ul>
+          <ul class="banner_li_box">
+            <li_item v-for="item in li_items" :data="item"></li_item>
+          </ul>
+          <div :class="img_left" @click="left_button_func">&lt;</div>
+          <div :class="img_right" @click="right_button_func">&gt;</div>
+          <div :class="img_button">
+            <li_button
+              v-for="num in numbers"
+              :class="key_Id==num?button_on:button_off"
+              :key="num"
+              :number="num"
+              @changenum="key_Id=$event"
+            ></li_button>
+          </div>
+        </div>
+      </article>
+      <!-- banner结束 -->
+      <!--底部导航开始-->
+      <aside>
+        <div class="aside_main" id="app_aside">
+          <div :class="txt_part">
+            <div class="aside_txt_button">
+              <span class="aside_txt_in_img">&#xe64a;</span>
+              <span class="aside_txt_in_txt">{{txts[0].content}}</span>
+            </div>
+            <div class="aside_txt_button">
+              <span class="aside_txt_in_img">&#xe611;</span>
+              <span class="aside_txt_in_txt">{{txts[1].content}}</span>
+            </div>
+            <div class="aside_txt_button">
+              <span class="aside_txt_in_img">&#xe635;</span>
+              <span class="aside_txt_in_txt">{{txts[2].content}}</span>
+            </div>
+            <div class="aside_txt_button" style="margin-top: 0;">
+              <span class="aside_txt_in_img">&#xe60b;</span>
+              <span class="aside_txt_in_txt">{{txts[3].content}}</span>
+            </div>
+            <div class="aside_txt_button" style="margin-top: 0;">
+              <span class="aside_txt_in_img">&#xe993;</span>
+              <span class="aside_txt_in_txt">{{txts[4].content}}</span>
+            </div>
+            <div class="aside_txt_button" style="margin-top: 0;">
+              <span class="aside_txt_in_img">&#xe674;</span>
+              <span class="aside_txt_in_txt">{{txts[5].content}}</span>
+            </div>
+          </div>
+          <img_box v-for="img in img_paths" :img_path="img"></img_box>
+        </div>
+      </aside>
+      <!--底部导航结束-->
+    </section>
+    <!--主要部分分区开始-->
+    <section>
+      <!--小米闪购开始-->
+      <article>
+        <div class="article_main" style="height: 420px;" id="app_article1">
+          <div :class="hd">
+            <h2 class="title">小米闪购</h2>
+          </div>
+
+          <div :class="box">
+            <img src="img/3.10shijian_03.png" :class="img" />
+            <transition name="box_fade">
+              <div class="article1_box_right" v-if="box_id==1" key="1">
+                <img_box v-for="box in img_boxs" :post="box"></img_box>
+              </div>
+              <div
+                class="article1_box_right"
+                :class="box_hidden"
+                v-if="box_id==2"
+                key="2"
+              >
+                <img_box v-for="box in img_boxs" :post="box"></img_box>
+              </div>
+            </transition>
+            <!--难点1-->
+          </div>
+        </div>
+      </article>
+      <!--小米闪购结束-->
+
+      <!--智能硬件开始-->
+      <article>
+        <div class="article_main" style="height: 700px;" id="app_article2">
+          <div class="article1_box-hd">
+            <h2 class="title">智能硬件</h2>
+            <!-- <h2 class="title2">查看全部</h2> -->
+          </div>
+          <div :class="box">
+            <div :class="box_left">
+              <img src="img/aa.jpg" width="234" height="614" alt="" />
+            </div>
+            <div :class="box_right">
+              <img_box v-for="box in boxs_right" :post="box"></img_box>
+            </div>
+          </div>
+        </div>
+      </article>
+      <!--智能硬件结束-->
+
+      <!--搭配三连击-->
+      <article id="app_article">
+        <article_box>
+          <article_img_box
+            v-for="box in img_boxs"
+            :post="box"
+          ></article_img_box>
+        </article_box>
+        <article_box>
+          <article_img_box
+            v-for="box in img_boxs"
+            :post="box"
+          ></article_img_box>
+        </article_box>
+        <article_box>
+          <article_img_box
+            v-for="box in img_boxs"
+            :post="box"
+          ></article_img_box>
+        </article_box>
+      </article>
+      <!--搭配三连击结束-->
+
+      <!--为你推荐开始-->
+      <article>
+        <div class="article_main" style="height: 380px;" id="app_article3">
+          <div class="article1_box-hd">
+            <h2 class="title">为你推荐</h2>
+          </div>
+          <div class="article3_box">
+            <article_img_box
+              :post="img_box"
+              style="margin-left: 0;"
+            ></article_img_box>
+            <article_img_box
+              v-for="box in img_boxs"
+              :post="box"
+            ></article_img_box>
+          </div>
+        </div>
+      </article>
+      <!--为你推荐结束-->
+
+      <!--热品产品开始-->
+      <article>
+        <div class="article_main" style="height: 500px;" id="app_article4">
+          <div class="article1_box-hd">
+            <h2 class="title">热评产品</h2>
+          </div>
+          <div class="article4_box">
+            <!-- <div class="article4_img_box">
+              <img src="img/rp1.jpg" alt="" />
+              <a href="" class="article4_img_box_txt">
+                东西真心不错，用过最好用的插线板，做工外观没得挑剔，
+                3个USB接口很实用， 充电快，建议不包邮的应该在...
+              </a>
+              <div class="article4_img_box_pj">
+                <p>来自于龙岩的评价</p>
+                <span class="article4_img_box_pj_txt1">小米笔记本</span>
+                <div class="header_main_line"></div>
+                <span class="article4_img_box_pj_txt2">3499元</span>
+              </div>
+            </div> -->
+            <img_box :path="path" style="margin-left: 0;"></img_box>
+            <img_box v-for="path in paths" :path="path"></img_box>
+          </div>
+        </div>
+      </article>
+      <!--热品产品结束-->
+
+      <!--内容开始-->
+      <article>
+        <div class="article_main" style="height: 500px;" id="app_article5">
+          <div class="article1_box-hd">
+            <h2 class="title">内容</h2>
+          </div>
+          <div :class="box">
+            <!-- <div class="article5_img_box">
+              <p class="article5_img_box_p1">图片</p>
+              <p class="article5_img_box_p2">哈利·波特与被诅咒的孩子</p>
+              <p class="article5_img_box_p3">
+                哈利·波特”第八个故事中文版震撼来袭！ 特别彩排版剧本！
+              </p>
+              <p class="article5_img_box_p4">29.37元</p>
+              <img src="img/nr1.png" />
+              <div class="article5_img_box_button" style="left:0;">&lt;</div>
+              <div class="article5_img_box_button" style="right:0;">&gt;</div> 
+            </div> -->
+            <img_box1 style="margin-left: 0;"></img_box1>
+            <img_box1></img_box1>
+            <img_box1></img_box1>
+            <img_box1></img_box1>
+          </div>
+        </div>
+      </article>
+      <!--内容结束-->
+
+      <!--视频开始-->
+      <article>
+        <div class="article_main" style="height: 370px;" id="app_article6">
+          <div class="article1_box-hd">
+            <h2 class="title">视频</h2>
+          </div>
+          <div :class="box">
+            <img_box style="margin-left: 0;" :post="img_box1"></img_box>
+            <img_box v-for="box in img_boxs" :post="box"></img_box>
+          </div>
+        </div>
+      </article>
+      <!--视频结束-->
+    </section>
+    <!--主要部分分区结束-->
+    <!--尾部开始-->
+    <footer>
+      <div id="app_footer1" class="footer_main" style="height: 40px;">
+        <div class="footer1_box">
+          <p>&#xe715; 预约维修服务</p>
+        </div>
+        <div class="footer1_box">
+          <p>&#xe60e; 7天无理由退货</p>
+        </div>
+        <div class="footer1_box">
+          <p>&#xe606; 15天免费换货</p>
+        </div>
+        <div class="footer1_box">
+          <p>&#xe61b; 满150包邮</p>
+        </div>
+        <div class="footer1_box">
+          <p style="border: none;">&#xe60c; 520余家售后网点</p>
+        </div>
+      </div>
+      <div id="app_footer2" class="footer_main" style="height: 193px;">
+        <left_box v-for="box in left_boxs" :data="box"></left_box>
+        <div class="footer2_box_right">
+          <div class="footer2_box_right_middle">
+            <p class="footer2_box_right_p1">400-100-6089</p>
+            <p class="footer2_box_right_p2">周一至周日 8:00-18:00</p>
+            <p
+              class="footer2_box_right_p2"
+              style="color: gray; margin-top: 5px;"
+            >
+              （仅收市话费）
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        id="app_footer3"
+        class="footer_main"
+        style="height: 130px; background-color: #fafafa;"
+      >
+        <div class="footer3_box">
+          <img src="img/logo-footer.png" />
+          <div class="footer3_left_box">
+            <div class="footer3_left_box_head">
+              <a_link v-for="link in a_links" :content="link"></a_link>
+              <a href="">Select Region</a>
+              <p class="footer3_left_box_p1">
+                ©mi.com 京ICP证110507号 京ICP备10046444号
+                京公网安备11010802020134号 京网文[2014]0059-0009号
+              </p>
+              <p class="footer3_left_box_p1" style="margin-top: 0;">
+                违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
+              </p>
+            </div>
+          </div>
+          <div class="footer3_right_box">
+            <img_link v-for="link in img_links" :path="link"></img_link>
+          </div>
+          <div class="footer3_bottom_box">
+            <img src="img/slogan2016.png" />
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script type="text/javascript" src="js/index.js"></script>
+</html>

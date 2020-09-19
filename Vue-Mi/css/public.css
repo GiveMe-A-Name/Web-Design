@@ -1,0 +1,10 @@
+/*初始化文件*/
+* {
+  /*外边框和内边框都定义为0*/
+  margin: 0;
+  padding: 0;
+  /*样式定义成无，没有斜体样式 也没有列表的样式，让我们自定义*/
+  text-decoration: none;
+  font-style: normal;
+  list-style: none;
+}
