@@ -1,6 +1,6 @@
 # Input样式
 
-**`outline：轮廓边框`**
+## **`outline：轮廓边框`**
 
 当input输入框进行聚焦的时候，会有一个outline样式的生成
 
@@ -10,7 +10,7 @@ or 改变input触发后改变边框颜色 ： `outline-color:red`
 
 ****
 
-**`box-sizing`**
+## **`box-sizing`**
 
 - **content-box：padding和border不被包含在定义的width和height之内。**
 - **border-box：padding和border被包含在定义的width和height之内**
@@ -21,7 +21,7 @@ or 改变input触发后改变边框颜色 ： `outline-color:red`
 
 ****
 
-**`display:flex`**
+## **`display:flex`**
 
 > Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
 >
@@ -29,10 +29,10 @@ or 改变input触发后改变边框颜色 ： `outline-color:red`
 >
 > ```css
 > .box{
->     display: flex;
+>  display: flex;
 > }
 > .line_box{
->     display: inline-flex;
+>  display: inline-flex;
 > }
 > ```
 >
@@ -62,7 +62,7 @@ or 改变input触发后改变边框颜色 ： `outline-color:red`
   }
   ```
 
--  `felx-wrap` 如果一条轴线排不下，如何换行
+- `felx-wrap` 如果一条轴线排不下，如何换行
 
   ```c++
   .box{
@@ -70,7 +70,7 @@ or 改变input触发后改变边框颜色 ： `outline-color:red`
   }
   ```
 
--  `flex-flow` `flex-direction`属性和`flex-wrap`属性的简写形式
+- `flex-flow` `flex-direction`属性和`flex-wrap`属性的简写形式
 
   ```css
   .box {
@@ -78,7 +78,7 @@ or 改变input触发后改变边框颜色 ： `outline-color:red`
   }
   ```
 
--  `justify-content` 定义项目水平方向上的对齐方式
+- `justify-content` 定义项目水平方向上的对齐方式
 
   ```css
   .box {
@@ -94,7 +94,7 @@ or 改变input触发后改变边框颜色 ： `outline-color:red`
   }
   ```
 
--  `align-content` 定义了多根轴线的对齐方式
+- `align-content` 定义了多根轴线的对齐方式
 
   ```css
   .box {
@@ -112,7 +112,7 @@ or 改变input触发后改变边框颜色 ： `outline-color:red`
   }
   ```
 
--  `flex-grow`属性定义项目的放大比例，默认为`0`，即如果存在剩余空间，也不放大。
+- `flex-grow`属性定义项目的放大比例，默认为`0`，即如果存在剩余空间，也不放大。
 
   ```css
   .item {
@@ -130,11 +130,11 @@ or 改变input触发后改变边框颜色 ： `outline-color:red`
 
    如果所有项目的`flex-shrink`属性都为1，当空间不足时，都将等比例缩小。如果一个项目的`flex-shrink`属性为0，其他项目都为1，则空间不足时，前者不缩小。既当空间不足的时候才会进行缩小
 
--  **~~补充~~**
+- **~~补充~~**
 
 ****
 
-**min-height**
+## **`min-height`**
 
 > 设置最小行高，既会进行自适应
 >
@@ -150,7 +150,7 @@ or 改变input触发后改变边框颜色 ： `outline-color:red`
 
 ****
 
-**:focus 选择器**
+## **`:focus 选择器`**
 
 > **设置对象在成为输入焦点（该对象的onfocus事件发生）时的样式。**
 
@@ -174,102 +174,8 @@ input:focus ~ label{ /* 当该input获得焦点，应用给它的后面的兄弟
 
 ****
 
-**E: before / after**
+## **`E: before / after`**
 
 > **设置在对象前后发生的内容，用于在css渲染中向元素逻辑上的头部或尾部添加内容。这些内容不会在DOM中出现，仅仅是在CSS层渲染加入，所以不要用:before或:after展示有实际意义的内容，尽量使用它们显示修饰性内容，例如图标**
 >
 > ::before和::after必须配合content属性来使用，content用来定义插入的内容，content必须有值，至少是空。
-
-# BitHeart样式
-
-**`animation`**
-
-> 给元素设置动画，有两个步骤，首先定义动画，之后给元素绑定动画。
-
-定义动画
-
-```css
-/*
-@keyframes animation-name{
-    from{
-        
-    }
-    to{
-        
-    }
-    
-    or
-
-    30%,%50{
-        
-    }
-    70%,%100{
-        
-    }
-}
-*/
-@keyframes{
-    30%,50%{
-        height:60px;
-        transform: translateY(-30px)
-    }
-    70%,100%{
-        heigth:0px;
-        transform: translateY(0px);
-    }
-}
-
-
-```
-
-绑定动画
-
-```css
-/*
-.box{
- 	animation:name duration time-function delay iteration-count 
-}
-*/
-
-li:nth-child(1){
-	background: red;
-	animation:love1 4s 0s infinite;
-}
-```
-
-**总结**：
-
-> 动画效果要比过渡效果更加灵活，我们可以为他设置每个百分比进度的样式，元素从最开始的样式是0%变为30%,50%,70%,100%,可以形成一个动画动态循环。
-
-****
-
-**`E:nth-child(n)`**
-
-说明：
-
-> **匹配父元素的第n个子元素E**
->
-> 要使该属性生效，E元素必须是某个元素的子元素，E的父元素最高是body，即E可以是body的子元素。既用来说明该元素是作为第几个子元素出现的；
-
-```css
-li:nth-child(1){
- 	/* style */   
-}
-```
-
-```html
-<ul>
-    <li></li> <!--匹配的是这里第一个li，作为第一个子元素出现-->
-    <li></li>
-    <li></li>
-</ul>
-```
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,68 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body,
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightcoral;
+}
+
+.container {
+  height: 120px;
+  text-align: center;
+  width: 100%;
+  /* background-color: #fff; */
+  position: relative;
+}
+
+.container .text {
+  font-family: "Barlow", sans-serif;
+  line-height: 120px;
+  font-size: 120px;
+  height: 120px;
+  position: absolute;
+  font-weight: bolder;
+  text-transform: uppercase;
+  top: 0;
+  width: 100%;
+}
+
+.container .text:nth-child(1) {
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  transition: 0.5s;
+}
+.container .text:nth-child(3) {
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+  transition: 0.5s;
+}
+
+.container .question {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 4em;
+  font-weight: bold;
+  overflow: hidden;
+  transform: scaleY(0);
+  transition: all 0.5s ease;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.container:hover > .question {
+  transform: scaleY(1);
+}
+.container:hover > .text:nth-child(1) {
+  transform: translateY(-55px);
+}
+.container:hover > .text:nth-child(3) {
+  transform: translateY(36px);
+}
