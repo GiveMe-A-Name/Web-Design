@@ -9,9 +9,13 @@
 
 ## CSS-pratice
 
-*参考了一位老哥的css样式，在其基础上做一些修改.老哥的网址: https://github.com/zhangyingwei/*
+*注：其中一些参考一位老哥的css样式，在其基础上做一些修改。老哥的github网址: https://github.com/zhangyingwei/*
 
-
+- `SUBBOTTOM`  《流体按钮样式》
+- `Calendar` 《2020\9月份日历》
+- `Heart`  《心跳》
+- `Input` 《输入框美化？》
+- `Split-font`  《字体滑动》
 
 ## Vue-Mi
 
