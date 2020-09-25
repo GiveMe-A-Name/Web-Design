@@ -7,7 +7,7 @@
 若要去掉聚焦发生的边框颜色 ： `outline:none`
 
 or 改变input触发后改变边框颜色 ： `outline-color:red`
-
+**注：`outline`与`border`的区别是，`outline`并不占据布局空间，而`border`会占据**
 ****
 
 ## **`box-sizing`**
