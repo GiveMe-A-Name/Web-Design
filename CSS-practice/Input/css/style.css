@@ -39,7 +39,7 @@ body{
 	margin-bottom: 10px;
 }
 
-/*
+
 .input-data input#input1:focus ~ .label1{
 	transform: translateY(-20px);
 	font-size:12px;
@@ -54,7 +54,6 @@ body{
 	font-weight:600;
 	text-shadow: 0 0 2px #c850c0;
 }
-*/
 
 .label1{
 	top:12%;
@@ -66,7 +65,6 @@ body{
 }
 .hava-content{
 	transform: translateY(-20px);
-	/*font-size:10px;*/
 	color:#c850c0;
 	font-weight:600;
 	text-shadow: 0 0 2px #c850c0;
