@@ -6,17 +6,17 @@
 
 > 目前仅关于前端的页面设计和一些个人CSS的练习。
 
-- CSSPratice：CSS样式
+- CSSPratice
 
-  > CSS样式样式练习
+  > CSS样式练习
 
 -  VueMi
 
-  > 单纯使用Vue写的一个仿小米官方网站的页面
+  > 单纯使用Vue写的仿小米网站
 
--  LoginPratice
+- LoginPratice
 
-  > 前后端分离的登录界面。
+  > 前后端分离的登录界面
 
 ## CSSPratice
 
