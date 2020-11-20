@@ -8,7 +8,7 @@
 
 - **CSSPratice**: *CSS样式练习*
 
--  **VueMi**: *单纯使用Vue写的仿小米网站*
+-  **VueMi**: *使用Vue仿写小米网站*
 
 - **LoginPratice**: *前后端分离的登录界面*
 
