@@ -197,7 +197,9 @@ func CORS(w *http.ResponseWriter) {
 window.sessionStorage.setItem('is_login', 'true')
 ```
 
+## 图书借还系统
 
+详情说明见，vue-books目录下 **`图书借还系统.md`** 文件
 
 
 
